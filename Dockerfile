@@ -106,7 +106,8 @@ RUN openclaw doctor --fix > /dev/null 2>&1 || true \
 # once OpenShell enables enforcement.
 # Ref: https://github.com/NVIDIA/NemoClaw/issues/514
 USER root
-RUN chown root:root /sandbox/.openclaw/openclaw.json \
+RUN chown root:root /sandbox/.openclaw /sandbox/.openclaw/openclaw.json \
+    && chmod 755 /sandbox/.openclaw \
     && chmod 444 /sandbox/.openclaw/openclaw.json
 USER sandbox
 
